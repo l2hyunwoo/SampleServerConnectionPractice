@@ -1,6 +1,7 @@
 package com.nunu.simpleserverconnection.data
 
 import com.nunu.simpleserverconnection.R
+import com.nunu.simpleserverconnection.data.model.Repo
 import com.nunu.simpleserverconnection.presentation.model.Menu
 
 class LocalHomeDataSource : HomeDataSource {
@@ -33,7 +34,43 @@ class LocalHomeDataSource : HomeDataSource {
         )
     }
 
-    override fun fetchGitHubItems(): MutableList<Menu> {
-        TODO("Not yet implemented")
+    override fun fetchGitHubItems(): MutableList<Repo> {
+        return mutableListOf(
+            Repo(
+                name = "누누",
+                description = "안녕앙녕",
+                stars = 3
+            ),
+            Repo(
+                name = "누누",
+                description = "안녕앙녕",
+                stars = 3
+            ),            Repo(
+                name = "누누",
+                description = "안녕앙녕",
+                stars = 3
+            ),            Repo(
+                name = "누누",
+                description = "안녕앙녕",
+                stars = 3
+            ),            Repo(
+                name = "누누",
+                description = "안녕앙녕",
+                stars = 3
+            ),            Repo(
+                name = "누누",
+                description = "안녕앙녕",
+                stars = 3
+            ),            Repo(
+                name = "누누",
+                description = "안녕앙녕",
+                stars = 3
+            ),            Repo(
+                name = "누누",
+                description = "안녕앙녕",
+                stars = 3
+            ),
+        )
+
     }
 }

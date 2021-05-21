@@ -9,19 +9,22 @@ import android.widget.GridLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.nunu.simpleserverconnection.R
 import com.nunu.simpleserverconnection.data.HomeDataSource
 import com.nunu.simpleserverconnection.data.LocalHomeDataSource
 import com.nunu.simpleserverconnection.data.RemoteHomeDataSource
 import com.nunu.simpleserverconnection.databinding.FragmentHomeBinding
 import com.nunu.simpleserverconnection.presentation.adapter.MenuAdapter
+import com.nunu.simpleserverconnection.presentation.adapter.RepoAdapter
 import com.nunu.simpleserverconnection.presentation.model.Menu
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val repoAdapter = RepoAdapter()
 
-    private var homeDataSource: HomeDataSource = LocalHomeDataSource()
+    private var homeDataSource: HomeDataSource = RemoteHomeDataSource(repoAdapter)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,5 +49,9 @@ class HomeFragment : Fragment() {
         binding.menuMainItems.adapter = menuAdapter
         binding.menuMainItems.layoutManager = layoutManager
         menuAdapter.replaceList(dataList)
+
+        binding.repoList.adapter = repoAdapter
+        //repoAdapter.replaceList(homeDataSource.fetchGitHubItems())
+        homeDataSource.fetchGitHubItems()
     }
 }

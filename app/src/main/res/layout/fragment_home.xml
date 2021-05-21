@@ -21,5 +21,16 @@
             app:spanCount="4"
             tools:listitem="@layout/item_menu" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/repo_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_main_items"
+            tools:layout_editor_absoluteX="0dp"
+            tools:listitem="@layout/item_repo" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
